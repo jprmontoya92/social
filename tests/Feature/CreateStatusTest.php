@@ -24,6 +24,7 @@ class CreateStatusTest extends TestCase
         $response = $this->post(route('statuses.store'),['body'=>'Mi primer status']);
         //dd($response->getContent());
         $response->assertRedirect('login');
+        
     }
 
     /** @test */
@@ -47,7 +48,7 @@ class CreateStatusTest extends TestCase
         //3. Entonces veo un nuevo estado en la base de datos
 
         $response->assertJson([
-            'body' => 'Mi primer status'
+           'data' =>['body' => 'Mi primer status']
         ]);
         //podemos guardar el resultado en una variable y hacer comprobaciones
          $this->assertDatabaseHas('statuses',[

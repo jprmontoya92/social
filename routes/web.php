@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\StatusesController;
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','welcome')->name('home');
 
+Route::get('statuses',[StatusesController::class,'index'])->name('statuses.index');
 Route::post('statuses',[StatusesController::class, 'store'])->name('statuses.store')->middleware('auth');
 
-Route::auth();
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
