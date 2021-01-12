@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Notifications\RoutesNotifications;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','welcome')->name('home');
 
+//Status routes
 Route::get('statuses',[StatusesController::class,'index'])->name('statuses.index');
 Route::post('statuses',[StatusesController::class, 'store'])->name('statuses.store')->middleware('auth');
 
+//Likes Routes
+Route::post('/statuses/{status}/likes',[StatusLikeController::class,'store'])->name('statuses.likes.store');
+
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
