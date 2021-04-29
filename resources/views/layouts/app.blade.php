@@ -7,13 +7,17 @@
     <meta name="user" content="{{Auth::user()}}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="https://kit.fontawesome.com/7eba3b7cc6.js" crossorigin="anonymous"></script>
     <title>Social App</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-socialapp">
         <div class="container">
           
-            <a class="navbar-brand" href="{{route('home')}}">Social App</a>
+            <a class="navbar-brand" href="{{route('home')}}">
+              <i class="fa fa-address-book text-primary mr-1"></i>
+              Social App
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

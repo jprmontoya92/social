@@ -11,9 +11,15 @@ class StatusLikeController extends Controller
     public function store(Status $status){
           
         //podemos acceder a este estado y llamar la relacion likes y a traves de esta relacion creamos un nuevo like  
-        $status->likes()->create([
+        /* $status->likes()->create([
             'user_id' => auth()->id()
-        ]);
+        ]); */
 
+        $status->like();
+    }
+
+    public function destroy(Status $status){
+
+        $status->unlike();
     }
 }

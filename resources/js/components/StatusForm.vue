@@ -10,10 +10,13 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <button class="btn btn-primary" id="create-status">Publicar</button>
+          <button class="btn btn-primary" id="create-status">
+            <i class="fa fa-paper-plane mr-1"></i>
+            Publicar
+            </button>
         </div>
       </form>
-      <div class="card-body" v-else="isAuthenticated">
+      <div class="card-body" :v-else="isAuthenticated" >
          <a href="/login">Debes hacer  Login</a>
       </div>
     </div>
@@ -37,8 +40,6 @@ export default {
             //como primer parametro recibe el nombre del evento y como segundo parametro , le podemos pasar cualquier informacion relevante, en este caso le pasaramos los estados
                EventBus.$emit('status-created', res.data.data);
                this.body = '';
-            }).then(err=>{
-                //console.log(err.response.data)
             });
         }
     }
